@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Uma viagem com o robô Pip para crianças de 7 a 9 anos aprenderem como funciona a inteligência artificial.">
+<title>Treinadores do Pip</title>
+<style>
+html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/AtkinsonHyperlegible-400-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/AtkinsonHyperlegible-400-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/AtkinsonHyperlegible-700-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Atkinson Hyperlegible';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/AtkinsonHyperlegible-700-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/Fredoka-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/Fredoka-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/Fredoka-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/Fredoka-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Fredoka-500-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+@font-face{font-family:'Fredoka';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/Fredoka-500-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+/* Layout: caderno quadriculado; uma coluna central; o Narrador numa faixa de livro, o Pip num balão; a atividade por baixo */
+:root{
+  --paper:#EEF4FB; --card:#FFFFFF; --ink:#1B2A4A; --soft:#5A6B8C; --line:#C9D6E8;
+  --accent:#E8553A; --accent-ink:#FFFFFF; --mint:#1F9E86; --sun:#F6C445; --rock:#8C95A6; --bad:#C8402C;
+  --pip:#7CC4F2; --cheek:#F59AB0; --narr:#FFF6DA;
+  --display:"Fredoka","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",Verdana,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#111A2C; --card:#1A2541; --ink:#E6EDF8; --soft:#9DADC9; --line:#2A3854;
+  --accent:#FF7A5C; --accent-ink:#1B1010; --mint:#43D1B5; --sun:#F6C445; --rock:#7A859A; --bad:#FF7A6A;
+  --pip:#4FA6DB; --cheek:#E77F99; --narr:#2B2A22; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#111A2C; --card:#1A2541; --ink:#E6EDF8; --soft:#9DADC9; --line:#2A3854;
+  --accent:#FF7A5C; --accent-ink:#1B1010; --mint:#43D1B5; --sun:#F6C445; --rock:#7A859A; --bad:#FF7A6A;
+  --pip:#4FA6DB; --cheek:#E77F99; --narr:#2B2A22; color-scheme:dark}
+
+html,body{min-height:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:28px 28px;background-attachment:fixed}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px;display:flex;flex-direction:column;gap:18px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.15;margin:0;text-wrap:balance}
+h2{font-size:1.6rem} h3{font-size:1.2rem}
+p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.panel{background:var(--card);border:2px solid var(--ink);border-radius:18px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.btn{border:2px solid var(--ink);background:var(--card);border-radius:14px;padding:11px 18px;font-family:var(--display);font-weight:600;font-size:1.08rem;box-shadow:0 4px 0 var(--ink);transition:transform .08s,box-shadow .08s}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink)}
+.btn.go{background:var(--accent);color:var(--accent-ink)}
+.btn.ok{background:var(--mint);color:#fff}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.muted{color:var(--soft)} .small{font-size:.9rem}
+
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--display);font-weight:700;font-size:1.25rem}
+.brand svg{width:44px;height:44px}
+.chip{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--ink);background:var(--card);border-radius:999px;padding:4px 12px 4px 4px;font-family:var(--display);font-weight:600}
+.av{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;border:3px solid var(--ring,var(--line));background:var(--card);flex:none}
+.iconbtn{border:2px solid var(--ink);background:var(--card);border-radius:12px;padding:6px 10px;font-weight:700;font-size:.95rem}
+
+/* Narrador e Pip */
+.story{display:flex;flex-direction:column;gap:10px}
+.narr{background:var(--narr);border:2px solid var(--ink);border-radius:6px 18px 18px 6px;border-left-width:8px;padding:10px 14px;display:flex;gap:10px;align-items:flex-start}
+.narr .who{font-family:var(--display);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.narr p{font-size:1.05rem}
+.pip{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:end}
+.pip svg{width:96px;height:96px;overflow:visible}
+.pip .body{animation:bob 2.6s ease-in-out infinite;transform-origin:50% 100%}
+.pip .wave{animation:wave 1.6s ease-in-out infinite;transform-origin:16px 62px}
+@keyframes bob{50%{transform:translateY(-3px)}}
+@keyframes wave{0%,60%,100%{transform:rotate(0)}20%{transform:rotate(-24deg)}40%{transform:rotate(8deg)}}
+@media (prefers-reduced-motion:reduce){.pip .body,.pip .wave{animation:none}}
+.bubble{position:relative;background:var(--card);border:2px solid var(--ink);border-radius:20px;padding:12px 16px;min-width:0;margin-bottom:22px}
+.bubble::before{content:"";position:absolute;left:-11px;bottom:18px;width:18px;height:18px;background:var(--card);border-left:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg)}
+.bubble p{font-size:1.15rem;font-family:var(--display);font-weight:500}
+.listen{align-self:flex-start;border:2px solid var(--ink);background:var(--sun);color:#1B2A4A;border-radius:999px;padding:4px 14px;font-weight:700;font-size:.95rem}
+
+.profiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.prof{border:2px solid var(--ink);background:var(--card);border-radius:16px;padding:14px;display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--display);font-weight:600;font-size:1.05rem;box-shadow:0 4px 0 var(--ink)}
+.prof .av{width:64px;height:64px;font-size:2.2rem;border-width:4px}
+.pick{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.pick button{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.95rem}
+.pick button .big{font-size:2rem;line-height:1}
+.pick button[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 3px var(--accent)}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid var(--ink)}
+
+.trail{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.stop{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center;position:relative;padding-block:10px}
+.stop:not(:last-child)::after{content:"";position:absolute;left:31px;top:66px;bottom:-14px;border-left:4px dashed var(--soft)}
+.dot{width:64px;height:64px;border-radius:50%;border:3px solid var(--ink);display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.5rem;background:var(--card);position:relative;z-index:1}
+.stop.open .dot{background:var(--accent);color:var(--accent-ink)}
+.stop.done .dot{background:var(--mint);color:#fff}
+.stop.locked{opacity:.55}
+.stop .card{all:unset;cursor:pointer;display:flex;flex-direction:column;gap:2px;background:var(--card);border:2px solid var(--ink);border-radius:14px;padding:10px 14px}
+.stop .card:focus-visible{outline:3px solid var(--accent)}
+.stop .card[aria-disabled="true"]{cursor:default;border-style:dashed}
+.stars{color:var(--sun);letter-spacing:2px;font-size:1.1rem;white-space:nowrap}
+.stars .off{color:var(--line)}
+
+.bigcode{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.12em;background:var(--paper);border:3px dashed var(--ink);border-radius:14px;padding:8px 16px;align-self:flex-start;font-variant-numeric:tabular-nums}
+.slots{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.slots span{width:38px;height:48px;border:2px solid var(--ink);border-radius:10px;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.4rem;background:var(--card)}
+.slots span.empty{border-style:dashed;border-color:var(--soft)}
+.slots i{font-style:normal;font-weight:700;color:var(--soft)}
+.keys{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}
+.keys button{border:2px solid var(--ink);background:var(--card);border-radius:10px;padding:8px 0;font-family:var(--display);font-weight:700;font-size:1.2rem}
+
+.steps{display:flex;gap:6px}
+.steps span{flex:1;height:8px;border-radius:4px;background:var(--line)}
+.steps span.on{background:var(--accent)}
+.game{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+@media (min-width:700px){.game{grid-template-columns:minmax(0,360px) minmax(0,1fr);align-items:start}}
+.board{position:relative;width:100%;max-width:360px;aspect-ratio:1;border:3px solid var(--ink);border-radius:12px;background:var(--card);display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,1fr);overflow:hidden}
+.cell{border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:grid;place-items:center;font-size:clamp(1.2rem,6vw,2rem)}
+.rock{display:block;width:70%;height:55%;background:var(--rock);border-radius:45% 55% 40% 50%;box-shadow:inset -4px -4px 0 rgba(0,0,0,.18)}
+.bot{position:absolute;left:0;top:0;width:calc(100% / 6);height:calc(100% / 6);display:grid;place-items:center;transition:transform .35s ease;z-index:2}
+.bot svg{width:86%;height:86%}
+.bot.bump{animation:bump .4s}
+@keyframes bump{25%{rotate:-12deg}75%{rotate:12deg}}
+@media (prefers-reduced-motion:reduce){.bot{transition:none}.bot.bump{animation:none}}
+.prog{display:flex;flex-wrap:wrap;gap:6px;min-height:58px;padding:8px;border:2px dashed var(--soft);border-radius:12px;background:var(--card)}
+.prog .empty{color:var(--soft);align-self:center;font-size:.95rem}
+.arrow{width:44px;height:44px;border:2px solid var(--ink);border-radius:10px;background:var(--paper);font-size:1.5rem;font-weight:700;display:grid;place-items:center;padding:0}
+.arrow.now{background:var(--sun);color:#1B2A4A}
+.arrow.err{background:var(--bad);color:#fff}
+.pad{display:grid;grid-template-columns:repeat(4,56px);gap:8px}
+.pad .arrow{width:56px;height:56px;font-size:1.8rem;background:var(--card);box-shadow:0 3px 0 var(--ink)}
+.msg{font-family:var(--display);font-weight:600;font-size:1.08rem;padding:10px 14px;border-radius:12px;border:2px solid var(--ink)}
+.msg.good{background:var(--mint);color:#fff}
+.msg.bad{background:var(--card);border-color:var(--accent);color:var(--ink)}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{text-align:left;border:2px solid var(--ink);background:var(--card);border-radius:14px;padding:12px 16px;font-size:1.1rem}
+.opt.right{background:var(--mint);color:#fff}
+.opt.wrong{border-color:var(--bad);color:var(--bad)}
+.stamp{width:150px;height:150px;border-radius:50%;border:5px double var(--accent);color:var(--accent);display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:700;rotate:-8deg;align-self:center;line-height:1.1;padding:10px}
+.note{border-left:4px solid var(--mint);padding-left:12px}
+.parents ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+input[type=number],input[type=text],textarea{font:inherit;padding:8px 10px;border:2px solid var(--ink);border-radius:10px;background:var(--card);color:var(--ink);min-width:0}
+input[type=number]{width:110px;font-size:1.3rem}
+textarea{width:100%;min-height:110px;font-family:ui-monospace,Menlo,monospace;font-size:1rem;box-sizing:border-box}
+.proto{font-size:.85rem;color:var(--soft);text-align:center}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+
+/* painel do professor */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{border:2px solid var(--line);border-radius:14px;padding:10px 14px;background:var(--card)}
+.tile b{display:block;font-family:var(--display);font-size:1.8rem;font-variant-numeric:tabular-nums}
+.tile span{font-size:.9rem;color:var(--soft)}
+.modbars{display:flex;flex-direction:column;gap:6px}
+.modbar{display:grid;grid-template-columns:minmax(0,1fr) 140px 52px;gap:10px;align-items:center;font-size:.92rem}
+.modbar .track{height:12px;border-radius:6px;background:var(--line);overflow:hidden}
+.modbar .fill{height:100%;background:var(--mint)}
+.modbar .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--soft)}
+.tablewrap{overflow-x:auto;border:2px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+th{font-family:var(--display);font-weight:600;background:var(--paper)}
+td.m{text-align:center}
+.flag{display:inline-block;border-radius:999px;padding:1px 8px;font-size:.8rem;font-weight:700;background:var(--sun);color:#1B2A4A}
+.ex{display:inline-block;border:1px dashed var(--soft);border-radius:6px;padding:0 6px;font-size:.8rem;color:var(--soft)}
+.err{color:var(--bad);font-weight:700}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="app"></div>
+
+<script>
+(function(){
+/* ---------- o Pip ---------- */
+function pipSVG(mood){
+  const mouth = mood==='oops' ? '<ellipse cx="50" cy="60" rx="5" ry="6" fill="var(--ink)"/>'
+    : mood==='think' ? '<path d="M43 61 q7 -4 14 0" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>'
+    : '<path d="M40 57 q10 10 20 0" stroke="var(--ink)" stroke-width="3.5" fill="none" stroke-linecap="round"/>';
+  const brows = mood==='oops' ? '<path d="M31 33 l8 -3 M69 33 l-8 -3" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>' : '';
+  return '<svg viewBox="0 0 100 100" aria-hidden="true"><g class="body">'+
+  '<line x1="50" y1="8" x2="50" y2="20" stroke="var(--ink)" stroke-width="3"/><circle cx="50" cy="8" r="5" fill="var(--accent)" stroke="var(--ink)" stroke-width="2"/>'+
+  '<rect x="30" y="72" width="40" height="22" rx="10" fill="var(--pip)" stroke="var(--ink)" stroke-width="3"/>'+
+  '<circle cx="50" cy="83" r="4" fill="var(--sun)" stroke="var(--ink)" stroke-width="2"/>'+
+  '<g class="wave"><path d="M30 78 q-14 -6 -16 -20" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="14" cy="56" r="5" fill="var(--pip)" stroke="var(--ink)" stroke-width="2.5"/></g>'+
+  '<path d="M70 78 q10 4 12 12" stroke="var(--ink)" stroke-width="3" fill="none" stroke-linecap="round"/>'+
+  '<rect x="18" y="20" width="64" height="54" rx="24" fill="var(--pip)" stroke="var(--ink)" stroke-width="3"/>'+
+  '<rect x="25" y="28" width="50" height="38" rx="17" fill="var(--card)" stroke="var(--ink)" stroke-width="2"/>'+
+  '<circle cx="38" cy="44" r="7" fill="var(--ink)"/><circle cx="62" cy="44" r="7" fill="var(--ink)"/>'+
+  '<circle cx="40.5" cy="41.5" r="2.5" fill="#fff"/><circle cx="64.5" cy="41.5" r="2.5" fill="#fff"/>'+
+  '<ellipse cx="30" cy="55" rx="4.5" ry="3" fill="var(--cheek)"/><ellipse cx="70" cy="55" rx="4.5" ry="3" fill="var(--cheek)"/>'+
+  brows+mouth+'</g></svg>';
+}
+
+const AV=[{e:'🦊',n:'Raposa',g:'f'},{e:'🐢',n:'Tartaruga',g:'f'},{e:'🦉',n:'Coruja',g:'f'},{e:'🐙',n:'Polvo',g:'m'},{e:'🐝',n:'Abelha',g:'f'},{e:'🦔',n:'Ouriço',g:'m'},{e:'🐧',n:'Pinguim',g:'m'},{e:'🐸',n:'Sapo',g:'m'}];
+const COL=[{m:'Azul',f:'Azul',c:'#3B7DDD'},{m:'Verde',f:'Verde',c:'#1F9E86'},{m:'Laranja',f:'Laranja',c:'#F08A24'},{m:'Roxo',f:'Roxa',c:'#8A5CD6'},{m:'Amarelo',f:'Amarela',c:'#E0B21C'},{m:'Vermelho',f:'Vermelha',c:'#E04B3A'},{m:'Rosa',f:'Rosa',c:'#E05FA0'},{m:'Cinzento',f:'Cinzenta',c:'#7D8BA3'}];
+const MODS=[
+ {t:'O robô que só obedece',s:'Obedece',d:'Dá instruções ao Pip com setas.'},
+ {t:'Ensinar com exemplos',s:'Exemplos',d:'Ensina o Pip a reconhecer monstros.'},
+ {t:'O Pip só viu gatos laranja',s:'Enviesamento',d:'O que acontece com maus exemplos?'},
+ {t:'A máquina de adivinhar palavras',s:'Palavras',d:'Como um chatbot escolhe palavras.'},
+ {t:'Real ou inventado?',s:'Real?',d:'Detetives de imagens.'},
+ {t:'Os meus dados são meus',s:'Dados',d:'O semáforo da informação.'},
+ {t:'Conselho dos Guardiões',s:'Guardiões',d:'Prós, contras e as nossas regras.'}
+];
+
+/* ---------- código do explorador: 9 caracteres = id (20 bits) + animal (6) + estrelas (14) + controlo (5) ---------- */
+const ALPH='23456789ABCDEFGHJKLMNPQRSTUVWXYZ';
+function ck(payload){let s=0,x=payload;for(let i=0;i<8;i++){s+=(x%32)*(i+3);x=Math.floor(x/32)}return (s*7+3)%32}
+function encodeCode(id,a,p){let pv=0;for(let i=0;i<7;i++)pv=pv*4+(p[i]||0);
+  const payload=(id*64+a)*16384+pv;let v=payload*32+ck(payload);let s='';
+  for(let i=0;i<9;i++){s=ALPH[v%32]+s;v=Math.floor(v/32)}return s.slice(0,4)+'-'+s.slice(4)}
+function decodeCode(str){const s=String(str||'').toUpperCase().replace(/[^0-9A-Z]/g,'').replace(/O/g,'0').replace(/I/g,'1');
+  if(s.length!==9)return null;let v=0;for(const ch of s){const k=ALPH.indexOf(ch);if(k<0)return null;v=v*32+k}
+  const c=v%32,payload=Math.floor(v/32);if(ck(payload)!==c)return null;
+  let pv=payload%16384;const a=Math.floor(payload/16384)%64,id=Math.floor(payload/1048576);
+  const p=[];for(let i=6;i>=0;i--){p[i]=pv%4;pv=Math.floor(pv/4)}return {id,a,p,sid:s.slice(0,4)}}
+function newId(){try{const b=new Uint32Array(1);crypto.getRandomValues(b);return b[0]%1048576}catch(e){return Math.floor(Math.random()*1048576)}}
+
+/* ---------- guardar neste aparelho ---------- */
+const KEY='pip-jornada-v2',TKEY='pip-professor-v1';
+let store={profiles:[],voice:true};
+let teach={turmas:[]};
+try{const s=JSON.parse(localStorage.getItem(KEY)||'null');if(s&&Array.isArray(s.profiles))store=Object.assign(store,s)}catch(e){}
+try{const o=JSON.parse(localStorage.getItem('pip-jornada-v1')||'null');if(o&&Array.isArray(o.profiles)&&!store.profiles.length){store.profiles=o.profiles.map(p=>({id:newId(),a:p.a,p:p.p,lid:p.id}))}}catch(e){}
+store.profiles.forEach(p=>{if(!p.lid)p.lid='p'+p.id.toString(36)});
+try{const t=JSON.parse(localStorage.getItem(TKEY)||'null');if(t&&Array.isArray(t.turmas))teach=t}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+function saveT(){try{localStorage.setItem(TKEY,JSON.stringify(teach))}catch(e){}}
+function nameOf(a){const an=AV[Math.floor(a/8)%8],c=COL[a%8];return an.n+' '+c[an.g]}
+function avHTML(a,cls){return '<span class="av '+(cls||'')+'" style="--ring:'+COL[a%8].c+'">'+AV[Math.floor(a/8)%8].e+'</span>'}
+function starsHTML(n){let s='';for(let i=0;i<3;i++)s+=i<n?'★':'<span class="off">★</span>';return '<span class="stars" aria-label="'+n+' de 3 estrelas">'+s+'</span>'}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------- duas vozes: Narrador (calma, grave) e Pip (aguda, rápida) ---------- */
+function voices(){try{const vs=speechSynthesis.getVoices().filter(v=>/^pt/i.test(v.lang));
+  const pt=vs.filter(v=>/PT/i.test(v.lang)),pool=pt.length?pt:vs;return {narr:pool[0]||null,pip:pool[1]||pool[0]||null}}catch(e){return {narr:null,pip:null}}}
+function speak(parts,force){try{if((!store.voice&&!force)||!window.speechSynthesis)return;speechSynthesis.cancel();const V=voices();
+  parts.forEach(([who,t])=>{if(!t)return;const u=new SpeechSynthesisUtterance(t.replace(/<[^>]+>/g,''));const v=V[who];if(v){u.voice=v;u.lang=v.lang}else u.lang='pt-PT';
+    if(who==='pip'){u.pitch=1.7;u.rate=1.08}else{u.pitch=.85;u.rate=.92}speechSynthesis.speak(u)})}catch(e){}}
+let LAST=[];
+function story(narr,pip,mood){LAST=[['narr',narr],['pip',pip]];
+  return '<div class="story">'+(narr?'<div class="narr"><div><div class="who">Narrador</div><p>'+narr+'</p></div></div>':'')+
+  (pip?'<div class="pip">'+pipSVG(mood)+'<div class="bubble"><p>'+pip+'</p></div></div>':'')+
+  '<button class="listen" data-act="listen">🔊 Ouvir</button></div>'}
+
+/* ---------- estado ---------- */
+let S={screen:'login',cur:null,newA:null,newC:null,code:'',codeErr:false,gateOk:false,scene:0,fails:0,streak:0,quiz:0,qi:0,answered:false,confirmDel:null,turma:null,tmsg:null};
+const app=document.getElementById('app');
+function me(){return store.profiles.find(p=>p.lid===S.cur)}
+function short(){const p=me();return p?nameOf(p.a):''}
+function topBar(back){const p=me();
+  return '<div class="top"><div class="brand">'+pipSVG()+'<span>Treinadores do Pip</span></div><div class="row">'+
+  (back?'<button class="iconbtn" data-act="'+back+'">← '+(back==='map'?'Mapa':'Voltar')+'</button>':'')+
+  '<button class="iconbtn" data-act="voice" aria-pressed="'+store.voice+'">'+(store.voice?'🔊 Vozes ligadas':'🔇 Vozes desligadas')+'</button>'+
+  (p&&S.screen!=='login'&&!S.screen.startsWith('t')?'<span class="chip">'+avHTML(p.a)+nameOf(p.a)+'</span>':'')+'</div></div>'}
+
+/* ---------- ecrãs do aluno ---------- */
+function vLogin(){
+  const list=store.profiles.map(p=>'<button class="prof" data-act="enter" data-id="'+p.lid+'">'+avHTML(p.a)+'<span>'+nameOf(p.a)+'</span>'+starsHTML(p.p[0]||0)+'</button>').join('');
+  return topBar()+story('Esta é a história de um robô chamado Pip, que quer aprender muitas coisas. E tu vais ser o treinador dele.','Olá, olá! Que bom que vieste! Vamos aprender juntos?')+
+  '<section class="panel"><h2>Quem vai explorar hoje?</h2>'+
+  (list?'<div class="profiles">'+list+'</div>':'<p class="muted">Ainda não há exploradores neste aparelho.</p>')+
+  '<div class="row"><button class="btn go" data-act="new">+ Novo explorador</button><button class="btn" data-act="havecode">Tenho um código</button></div></section>'+
+  '<div class="roles"><button class="btn" data-act="teacher">Sou professor</button><button class="btn" data-act="parents">Sou pai ou mãe</button></div>'+
+  '<p class="proto">Protótipo: só a paragem 1 está pronta. Não pedimos nomes nem emails.</p>'}
+
+function vNew(){
+  const an=AV.map((a,i)=>'<button data-act="pickA" data-i="'+i+'" aria-pressed="'+(S.newA===i)+'"><span class="big">'+a.e+'</span>'+a.n+'</button>').join('');
+  const g=S.newA!=null?AV[S.newA].g:'m';
+  const co=COL.map((c,i)=>'<button data-act="pickC" data-i="'+i+'" aria-pressed="'+(S.newC===i)+'"><span class="sw" style="background:'+c.c+'"></span>'+c[g]+'</button>').join('');
+  const ready=S.newA!=null&&S.newC!=null;
+  return topBar('login')+story('Aqui ninguém escreve o nome verdadeiro. Cada explorador escolhe um animal e uma cor.', ready?'Uau, '+nameOf(S.newA*8+S.newC)+'! Adoro esse nome!':'Qual vais escolher? Estou curioso!')+
+  '<section class="panel"><h3>1. Escolhe um animal</h3><div class="pick">'+an+'</div><h3>2. Escolhe uma cor</h3><div class="pick">'+co+'</div>'+
+  '<div class="row"><button class="btn go" data-act="create" '+(ready?'':'disabled')+'>Começar</button></div></section>'}
+
+function slotsHTML(code){let h='';for(let i=0;i<9;i++){if(i===4)h+='<i>-</i>';h+=code[i]?'<span>'+code[i]+'</span>':'<span class="empty"></span>'}return '<div class="slots">'+h+'</div>'}
+function vCode(){
+  const keys=ALPH.split('').map(c=>'<button data-act="key" data-k="'+c+'" '+(S.code.length>=9?'disabled':'')+'>'+c+'</button>').join('');
+  return topBar('login')+story('O código do explorador tem nove letras e números. Com ele continuas onde ficaste, em qualquer aparelho.','Escreve o teu código. Eu espero, não há pressa!')+
+  '<section class="panel">'+slotsHTML(S.code)+(S.codeErr?'<p class="msg bad">Hmm, este código não funciona. Confirma letra a letra.</p>':'')+
+  '<div class="keys">'+keys+'</div>'+
+  '<div class="row"><button class="btn go" data-act="usecode" '+(S.code.length===9?'':'disabled')+'>Entrar</button><button class="btn" data-act="unkey">Apagar</button></div></section>'}
+
+function vMap(){
+  const p=me();const done=p.p.filter(x=>x>0).length;
+  const items=MODS.map((m,i)=>{const st=p.p[i]||0,open=i===0;
+    const cls=st>0?'done':open?'open':'locked';
+    return '<li class="stop '+cls+'"><span class="dot">'+(st>0?'✓':i+1)+'</span>'+
+    '<button class="card" '+(open?'data-act="play"':'aria-disabled="true" tabindex="-1"')+'>'+
+    '<strong style="font-family:var(--display);font-size:1.15rem">'+m.t+'</strong><span class="small muted">'+(open?m.d:'Em construção')+'</span>'+(st>0?starsHTML(st):'')+'</button></li>'}).join('');
+  const code=encodeCode(p.id,p.a,p.p);
+  return topBar()+story('O mapa tem sete paragens. Em cada uma, o Pip aprende uma coisa nova sobre inteligência artificial.',
+    done?'Já fizemos '+done+' paragem! Estou tão contente por treinar contigo, '+short()+'!':'Olá, '+short()+'! Pronto para a primeira paragem? Eu vou contigo!')+
+  '<section class="panel"><h2>O teu mapa</h2><ol class="trail">'+items+'</ol></section>'+
+  '<section class="panel"><h3>O teu código de explorador</h3>'+
+  '<p>Mostra este código ao teu professor para ele te juntar à turma. Também serve para continuares noutro aparelho. Não tem o teu nome.</p>'+
+  '<div class="bigcode" id="mycode">'+code+'</div>'+
+  '<div class="row"><button class="btn" data-act="copy" data-code="'+code+'">Copiar código</button><span class="small muted" id="copied" role="status"></span></div>'+
+  '<p class="small muted">O código muda quando ganhas estrelas. Mostra-o outra vez ao professor no fim de cada paragem.</p>'+
+  '<div class="row"><button class="btn" data-act="logout">Trocar de explorador</button></div></section>'}
+
+/* ---------- paragem 1 ---------- */
+const DIRS={U:[0,-1,'↑','cima'],R:[1,0,'→','direita'],D:[0,1,'↓','baixo'],L:[-1,0,'←','esquerda']};
+const CYC=['U','R','D','L'];
+const LEVELS=[
+ {t:'Primeiro caminho',n:'O Pip só se mexe com instruções. Cada seta é um passo.',pip:'Tenho tanta vontade de chegar ao bolo! Dás-me as setas? Depois carrega em Correr.',s:[0,5],g:[3,5],r:[],p:[],max:8},
+ {t:'Subir e virar',n:'Agora o bolo está mais acima. O Pip anda sempre na direção para onde a seta aponta.',pip:'Este é um bocadinho mais difícil, mas tu consegues. Eu confio nas tuas setas!',s:[0,5],g:[3,2],r:[],p:[],max:10},
+ {t:'Caça ao erro',n:'Alguém escreveu este programa, mas tem uma seta errada. Carrega em Correr para ver. Depois toca na seta errada para a rodar.',pip:'Uh-oh, acho que estas setas têm uma surpresa. Ajudas-me a descobrir qual é?',s:[0,5],g:[4,3],r:[[2,5],[2,4]],p:['U','D','R','R','R','R'],max:10},
+ {t:'Desafio do labirinto',n:'Último desafio. Há pedras no caminho. Os bons programadores pensam no caminho todo antes de testar.',pip:'Uau, um labirinto! Vamos com calma. Se eu bater, tentamos outra vez, está bem?',s:[0,5],g:[5,5],r:[[2,2],[2,3],[2,4],[2,5],[4,0],[4,1],[4,2],[4,3]],p:[],max:14}
+];
+const QUIZ=[
+ {q:'O Pip bateu numa pedra. Porquê?',o:['Porque quis bater','Porque seguiu uma seta errada que lhe demos','Porque estava cansado'],a:1,
+  why:'O Pip não quer nem se cansa. Segue as instruções, mesmo quando estão erradas.'},
+ {q:'Um robô como o Pip faz...',o:['o que acha melhor','o que lhe apetece','exatamente o que lhe mandam'],a:2,
+  why:'Um programa é uma lista de instruções. O computador cumpre-as à letra, nem mais nem menos.'},
+ {q:'Se as instruções tiverem um erro, quem o deve corrigir?',o:['O robô, sozinho','Nós, que escrevemos as instruções','Ninguém, os erros não importam'],a:1,
+  why:'Quem escreve as instruções é responsável por elas. Por isso testamos e corrigimos.'}
+];
+const OOPS=['Ups! Não faz mal, errar faz parte de programar. Vamos ver qual foi a seta?','Opa! Os programadores a sério também testam muitas vezes. Tentamos outra vez?','Quase! Respira fundo. Olha para a seta vermelha e pensa para onde eu devia ir.'];
+let G=null;
+function startLevel(i){const L=LEVELS[i];G={i,L,prog:L.p.slice(),pos:L.s.slice(),busy:false,msg:null,cur:-1,err:-1,won:false,mood:'happy',pipMsg:null};S.streak=0}
+function scenes(){return 2+LEVELS.length+1}
+function stepsBar(){let s='';for(let i=0;i<scenes();i++)s+='<span class="'+(i<=S.scene?'on':'')+'"></span>';return '<div class="steps" aria-label="Passo '+(S.scene+1)+' de '+scenes()+'">'+s+'</div>'}
+
+function vM1(){
+  const n=S.scene;
+  if(n===0)return topBar('map')+stepsBar()+story('O Pip é um robô. Parece simpático, e é, mas não pensa nem sente como tu. Faz exatamente o que lhe mandam, nem mais nem menos. A lista de instruções que lhe damos chama-se programa.','Hoje vais escrever os meus primeiros programas! Estou mesmo entusiasmado!')+
+    '<section class="panel"><h2>Paragem 1: O robô que só obedece</h2><p>São quatro desafios com setas e, no fim, três perguntas.</p><div class="row"><button class="btn go" data-act="next">Vamos!</button></div></section>';
+  if(n>=1&&n<=LEVELS.length)return topBar('map')+stepsBar()+story(G.L.n,G.pipMsg||G.L.pip,G.mood)+vGame();
+  if(n===LEVELS.length+1)return topBar('map')+stepsBar()+vQuiz();
+  return topBar('map')+stepsBar()+vDone();
+}
+function vGame(){
+  const L=G.L;let cells='';
+  for(let y=0;y<6;y++)for(let x=0;x<6;x++){const rock=L.r.some(r=>r[0]===x&&r[1]===y);const goal=L.g[0]===x&&L.g[1]===y;
+    cells+='<div class="cell">'+(rock?'<span class="rock" aria-label="pedra"></span>':goal?'<span aria-label="bolo">🎂</span>':'')+'</div>'}
+  const prog=G.prog.length?G.prog.map((d,i)=>'<button class="arrow'+(i===G.cur?' now':'')+(i===G.err?' err':'')+'" data-act="rot" data-i="'+i+'" aria-label="Seta para '+DIRS[d][3]+', toca para rodar" '+(G.busy?'disabled':'')+'>'+DIRS[d][2]+'</button>').join(''):'<span class="empty">O teu programa aparece aqui.</span>';
+  const pad=CYC.map(d=>'<button class="arrow" data-act="add" data-d="'+d+'" aria-label="Juntar seta para '+DIRS[d][3]+'" '+(G.busy||G.prog.length>=L.max?'disabled':'')+'>'+DIRS[d][2]+'</button>').join('');
+  const dis=G.busy||!G.prog.length?'disabled':'';
+  return '<section class="panel"><h3>Desafio '+S.scene+' de '+LEVELS.length+': '+L.t+'</h3><div class="game">'+
+  '<div class="board" id="board">'+cells+'<div class="bot" id="bot">'+pipSVG(G.mood)+'</div></div>'+
+  '<div style="display:flex;flex-direction:column;gap:12px;min-width:0"><div><p class="small muted">Programa ('+G.prog.length+' de '+L.max+' setas). Toca numa seta para a rodar.</p><div class="prog">'+prog+'</div></div>'+
+  '<div class="pad">'+pad+'</div>'+
+  '<div class="row"><button class="btn go" data-act="run" '+dis+'>▶ Correr</button><button class="btn" data-act="back1" '+dis+'>Apagar última</button><button class="btn" data-act="clear" '+dis+'>Limpar</button></div>'+
+  (G.msg?'<p class="msg '+(G.won?'good':'bad')+'" role="status">'+G.msg+'</p>':'')+
+  (G.won?'<div class="row"><button class="btn ok" data-act="next">Continuar →</button></div>':'')+
+  '</div></div></section>'}
+function placeBot(){const b=document.getElementById('bot');if(b)b.style.transform='translate('+G.pos[0]*100+'%,'+G.pos[1]*100+'%)'}
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+async function run(){
+  const L=G.L;G.busy=true;G.msg=null;G.err=-1;G.mood='think';G.pipMsg='Lá vou eu! Passo a passo...';G.pos=L.s.slice();render();placeBot();await sleep(250);
+  for(let i=0;i<G.prog.length;i++){
+    G.cur=i;const d=DIRS[G.prog[i]];const nx=G.pos[0]+d[0],ny=G.pos[1]+d[1];
+    document.querySelectorAll('.prog .arrow').forEach((a,k)=>a.classList.toggle('now',k===i));
+    await sleep(380);
+    const out=nx<0||ny<0||nx>5||ny>5, rock=L.r.some(r=>r[0]===nx&&r[1]===ny);
+    if(out||rock){const b=document.getElementById('bot');if(b)b.classList.add('bump');await sleep(420);
+      G.busy=false;G.err=i;G.cur=-1;S.fails++;S.streak++;G.mood='oops';
+      G.msg=(rock?'O Pip bateu numa pedra':'O Pip ia sair do tabuleiro')+' na seta '+(i+1)+'. Ele fez exatamente o que estava escrito.';
+      G.pipMsg=S.streak>=3?'Já tentámos muitas vezes, és persistente! Dica: olha para o bolo e conta os quadrados até lá, primeiro para cima e depois para o lado.':OOPS[(S.streak-1)%OOPS.length];
+      render();placeBot();speak([['narr',G.msg],['pip',G.pipMsg]]);return}
+    G.pos=[nx,ny];placeBot();await sleep(200);
+  }
+  G.busy=false;G.cur=-1;
+  if(G.pos[0]===L.g[0]&&G.pos[1]===L.g[1]){G.won=true;G.mood='happy';G.msg='O programa estava certo. O Pip chegou ao bolo!';G.pipMsg=S.streak?'Conseguimos! Viste? Errar e corrigir é assim que se aprende. Obrigado, '+short()+'!':'Iupi! À primeira! Tu és um programador de mão cheia!'}
+  else{S.fails++;S.streak++;G.mood='oops';G.msg='Acabaram as instruções e o Pip parou antes do bolo.';G.pipMsg='Fiquei a meio do caminho! Faltam setas. Quantos quadrados faltam até ao bolo?'}
+  render();placeBot();speak([['narr',G.msg],['pip',G.pipMsg]])
+}
+function vQuiz(){
+  const Q=QUIZ[S.qi];const ans=S.answered;
+  const opts=Q.o.map((o,i)=>{let c='';if(ans!==false){if(i===Q.a)c=' right';else if(i===ans)c=' wrong'}
+    return '<button class="opt'+c+'" data-act="answer" data-i="'+i+'" '+(ans!==false?'disabled':'')+'>'+o+'</button>'}).join('');
+  const pipT=ans===false?'Hora das perguntas! Pensa com calma, não há pressa.':ans===Q.a?'Isso mesmo! Sabes muito sobre robôs!':'Boa tentativa! Lê a explicação, esta é complicada.';
+  return story('Pergunta '+(S.qi+1)+' de 3. '+Q.q,pipT,ans!==false&&ans!==Q.a?'think':'happy')+
+  '<section class="panel"><h3>'+Q.q+'</h3><div class="opts">'+opts+'</div>'+
+  (ans!==false?'<p class="note">'+Q.why+'</p><div class="row"><button class="btn ok" data-act="nextq">'+(S.qi<2?'Próxima pergunta →':'Ver o resultado →')+'</button></div>':'')+
+  '</section>'}
+function vDone(){
+  const p=me();const st=p.p[0];const code=encodeCode(p.id,p.a,p.p);
+  return story('Agora sabes que um computador segue as instruções à letra. Se o programa estiver errado, o erro é de quem o escreveu, e pode ser corrigido.','Fizeste um trabalho fantástico, '+short()+'! Mal posso esperar pela próxima paragem contigo!')+
+  '<section class="panel" style="align-items:center;text-align:center"><div class="stamp">Paragem 1<br>Programador<br>do Pip</div>'+starsHTML(st)+
+  '<p class="small muted">Uma estrela por acabar, outra por teres poucos erros, outra por acertares nas três perguntas.</p></section>'+
+  '<section class="panel"><h3>Mostra ao teu professor</h3><p>O teu código novo, com as estrelas desta paragem:</p><div class="bigcode">'+code+'</div></section>'+
+  '<section class="panel"><h3>Pergunta para o jantar</h3><p>Pergunta a alguém lá de casa: <strong>que máquinas da nossa casa seguem instruções?</strong> Pensem na máquina de lavar, no micro-ondas, no semáforo da rua.</p></section>'+
+  '<div class="row"><button class="btn go" data-act="map">Voltar ao mapa</button><button class="btn" data-act="play">Jogar outra vez</button></div>'}
+
+/* ---------- pais ---------- */
+function gate(title){return topBar('login')+'<section class="panel"><h2>'+title+'</h2><p>Para entrar, responde: quanto é 8 × 7?</p><div class="row"><input type="number" id="gate" inputmode="numeric" aria-label="Resposta"><button class="btn go" data-act="gate">Entrar</button></div>'+(S.gateErr?'<p class="err">Resposta errada.</p>':'')+'</section>'}
+function vParents(){
+  if(!S.gateOk)return gate('Área dos pais');
+  const profs=store.profiles.map(p=>'<li class="row">'+avHTML(p.a)+'<span>'+nameOf(p.a)+'</span><code>'+encodeCode(p.id,p.a,p.p)+'</code>'+(S.confirmDel===p.lid?'<button class="iconbtn" data-act="delyes" data-id="'+p.lid+'">Confirmar: apagar</button><button class="iconbtn" data-act="delno">Cancelar</button>':'<button class="iconbtn" data-act="del" data-id="'+p.lid+'">Apagar</button>')+'</li>').join('')||'<li class="muted">Nenhum perfil neste aparelho.</li>';
+  return topBar('login')+'<section class="panel parents"><h2>Área dos pais</h2>'+
+  '<p>A jornada tem sete paragens sobre como a IA funciona, os seus prós e contras e os cuidados a ter. A criança pode fazê-la sozinha: há duas vozes, o Narrador explica e o Pip anima, e cada desafio dá resposta imediata.</p>'+
+  '<h3>Que dados guardamos</h3><ul><li>Nenhum nome, email, idade ou fotografia. A criança escolhe um animal e uma cor.</li><li>O progresso fica só neste navegador. Este site não envia nada para nenhum servidor.</li><li>O código do explorador guarda um número aleatório, o animal e as estrelas. O professor usa-o para juntar a criança à turma; o nome que lhe dá fica só no aparelho do professor.</li></ul>'+
+  '<h3>Paragem 1: o robô que só obedece</h3><ul><li><strong>Ideia-chave:</strong> um computador executa instruções à letra; a ordem importa; os erros são de quem escreve o programa.</li><li><strong>Duração:</strong> 15 a 20 minutos.</li><li><strong>Para conversar:</strong> que máquinas da casa seguem instruções? O Pip enganou-se ou fomos nós?</li><li><strong>Atenção:</strong> o Pip é simpático de propósito, mas o Narrador lembra que ele não pensa nem sente. Se a criança disser que o robô "ficou triste", é uma boa deixa para conversar.</li></ul>'+
+  '<h3>Perfis neste aparelho</h3><ul style="list-style:none;padding:0">'+profs+'</ul></section>'}
+
+/* ---------- professor ---------- */
+function exampleTurma(){const al=[];const sample=[[3,2,0,0,0,0,0],[2,1,0,0,0,0,0],[1,0,0,0,0,0,0],[3,0,0,0,0,0,0],[0,0,0,0,0,0,0],[2,0,0,0,0,0,0]];
+  sample.forEach((p,i)=>{const id=newId(),a=(i*11)%64;const d=decodeCode(encodeCode(id,a,p));al.push({sid:d.sid,nome:'N.º '+(i+1),a,p,at:new Date().toISOString().slice(0,10)})});
+  return {id:'t'+Date.now().toString(36),nome:'Turma de exemplo',ex:true,alunos:al}}
+function curT(){return teach.turmas.find(t=>t.id===S.turma)}
+function vTeacher(){
+  if(!S.gateOk)return gate('Área do professor');
+  const list=teach.turmas.map(t=>{const n=t.alunos.length,done=t.alunos.filter(a=>a.p[0]>0).length;
+    return '<button class="prof" data-act="openT" data-id="'+t.id+'" style="align-items:flex-start;text-align:left"><span>'+esc(t.nome)+(t.ex?' <span class="ex">exemplo</span>':'')+'</span><span class="small muted">'+n+' alunos · '+done+' terminaram a paragem 1</span></button>'}).join('');
+  return topBar('login')+'<section class="panel"><h2>As minhas turmas</h2>'+
+  (list?'<div class="profiles">'+list+'</div>':'<p class="muted">Ainda não criou nenhuma turma.</p>')+
+  '<div class="row"><input type="text" id="tname" placeholder="Nome da turma, ex.: 3.º B" maxlength="40"><button class="btn go" data-act="newT">Criar turma</button><button class="btn" data-act="exT">Ver turma de exemplo</button></div></section>'+
+  '<section class="panel"><h3>Como funciona</h3><ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px"><li>Cada aluno vê no mapa um código de explorador com 9 caracteres, por exemplo <code>K7PM-3QAZX</code>.</li><li>Junta o aluno escrevendo o código e um nome ou o número da turma. Esse nome fica só neste aparelho.</li><li>O código muda quando o aluno ganha estrelas. Para atualizar, cole os códigos novos: os quatro primeiros caracteres identificam o aluno.</li><li>Nada é enviado para servidores. Use sempre o mesmo navegador para ver a turma.</li></ul></section>'}
+function vTurma(){
+  const t=curT();if(!t)return vTeacher();const n=t.alunos.length;
+  const done=t.alunos.filter(a=>a.p[0]>0).length,apoio=t.alunos.filter(a=>a.p.some(x=>x===1)).length;
+  const avg=n?(t.alunos.reduce((s,a)=>s+a.p.filter(x=>x>0).length,0)/n):0;
+  const bars=MODS.map((m,i)=>{const c=t.alunos.filter(a=>a.p[i]>0).length;const pct=n?Math.round(c/n*100):0;
+    return '<div class="modbar"><span>'+(i+1)+'. '+m.t+'</span><div class="track"><div class="fill" style="width:'+pct+'%"></div></div><span class="n">'+c+'/'+n+'</span></div>'}).join('');
+  const rows=t.alunos.map((a,k)=>'<tr><td><span class="row" style="flex-wrap:nowrap;gap:8px">'+avHTML(a.a)+'<span>'+esc(a.nome)+'</span></span></td><td><code>'+a.sid+'</code></td>'+
+    MODS.map((m,i)=>'<td class="m">'+(a.p[i]?starsHTML(a.p[i]):'<span class="muted">·</span>')+'</td>').join('')+
+    '<td>'+(a.p.some(x=>x===1)?'<span class="flag">Rever</span>':'')+'</td><td class="small muted">'+a.at+'</td><td><button class="iconbtn" data-act="rmA" data-k="'+k+'">Retirar</button></td></tr>').join('');
+  return topBar('teacher')+'<section class="panel"><div class="row" style="justify-content:space-between"><h2>'+esc(t.nome)+(t.ex?' <span class="ex">exemplo</span>':'')+'</h2><button class="iconbtn" data-act="delT">Apagar turma</button></div>'+
+  '<div class="tiles"><div class="tile"><b>'+n+'</b><span>alunos</span></div><div class="tile"><b>'+done+'</b><span>terminaram a paragem 1</span></div><div class="tile"><b>'+avg.toFixed(1)+'</b><span>paragens por aluno, em média</span></div><div class="tile"><b>'+apoio+'</b><span>com uma paragem a rever (1 estrela)</span></div></div>'+
+  '<h3>Progresso por paragem</h3><div class="modbars">'+bars+'</div></section>'+
+  '<section class="panel"><h3>Alunos</h3>'+(n?'<div class="tablewrap"><table><thead><tr><th>Aluno</th><th>Código</th>'+MODS.map((m,i)=>'<th title="'+m.t+'">'+(i+1)+'. '+m.s+'</th>').join('')+'<th></th><th>Atualizado</th><th></th></tr></thead><tbody>'+rows+'</tbody></table></div>':'<p class="muted">Ainda não há alunos nesta turma. Junte o primeiro em baixo.</p>')+
+  '<p class="small muted">"Rever" aparece quando o aluno terminou uma paragem só com 1 estrela: muitos erros e perguntas falhadas.</p></section>'+
+  '<section class="panel"><h3>Juntar ou atualizar alunos</h3>'+
+  '<div class="row"><input type="text" id="acode" placeholder="Código, ex.: K7PM-3QAZX" maxlength="12" style="width:190px"><input type="text" id="aname" placeholder="Nome ou n.º na turma" maxlength="30" style="width:190px"><button class="btn go" data-act="addA">Juntar</button></div>'+
+  '<p class="small">Ou cole vários códigos, um por linha. Pode pôr o nome a seguir ao código, separado por um espaço.</p><textarea id="bulk" placeholder="K7PM-3QAZX N.º 4&#10;B2XC-9MPLT N.º 7"></textarea>'+
+  '<div class="row"><button class="btn" data-act="bulkA">Colar códigos</button></div>'+
+  (S.tmsg?'<p class="'+(S.tmsg.bad?'err':'note')+'" role="status">'+S.tmsg.t+'</p>':'')+'</section>'}
+function upsert(t,d,nome){const ex=t.alunos.find(a=>a.sid===d.sid);const today=new Date().toISOString().slice(0,10);
+  if(ex){ex.p=ex.p.map((v,k)=>Math.max(v,d.p[k]));ex.a=d.a;ex.at=today;if(nome)ex.nome=nome;return 'upd'}
+  t.alunos.push({sid:d.sid,nome:nome||nameOf(d.a),a:d.a,p:d.p,at:today});return 'new'}
+
+/* ---------- render e ações ---------- */
+function render(){
+  const v={login:vLogin,new:vNew,code:vCode,map:vMap,m1:vM1,parents:vParents,teacher:vTeacher,turma:vTurma}[S.screen]();
+  app.innerHTML=v;if(S.screen==='m1'&&G&&S.scene>=1&&S.scene<=LEVELS.length)placeBot();
+}
+function go(screen,talk){S.screen=screen;S.tmsg=null;render();window.scrollTo(0,0);if(talk)speak(LAST)}
+function finishModule(){const p=me();const st=1+(S.fails<=3?1:0)+(S.quiz===3?1:0);p.p[0]=Math.max(p.p[0]||0,st);save()}
+
+app.addEventListener('click',e=>{
+  const b=e.target.closest('[data-act]');if(!b||b.disabled)return;
+  const a=b.dataset.act,i=+b.dataset.i;
+  switch(a){
+    case 'listen':speak(LAST,true);break;
+    case 'voice':store.voice=!store.voice;save();if(!store.voice)try{speechSynthesis.cancel()}catch(e){};render();break;
+    case 'login':S.code='';S.codeErr=false;S.gateOk=false;S.gateErr=false;S.confirmDel=null;go('login',true);break;
+    case 'new':S.newA=null;S.newC=null;go('new',true);break;
+    case 'pickA':S.newA=i;render();break;
+    case 'pickC':S.newC=i;render();speak([['pip','Uau, '+nameOf(S.newA==null?S.newC:S.newA*8+S.newC)+'!']]);break;
+    case 'create':{const lid='p'+Date.now().toString(36);store.profiles.push({lid,id:newId(),a:S.newA*8+S.newC,p:[0,0,0,0,0,0,0]});save();S.cur=lid;go('map',true);break}
+    case 'enter':S.cur=b.dataset.id;go('map',true);break;
+    case 'havecode':S.code='';S.codeErr=false;go('code',true);break;
+    case 'key':if(S.code.length<9){S.code+=b.dataset.k;S.codeErr=false;render()}break;
+    case 'unkey':S.code=S.code.slice(0,-1);S.codeErr=false;render();break;
+    case 'usecode':{const r=decodeCode(S.code);if(!r){S.codeErr=true;render();speak([['pip','Hmm, este código não funciona. Vamos ver letra a letra?']]);break}
+      let p=store.profiles.find(x=>x.id===r.id);
+      if(p){p.p=p.p.map((v,k)=>Math.max(v,r.p[k]));p.a=r.a}else{p={lid:'p'+Date.now().toString(36),id:r.id,a:r.a,p:r.p};store.profiles.push(p)}
+      save();S.cur=p.lid;S.code='';go('map',true);break}
+    case 'copy':{const c=b.dataset.code,out=document.getElementById('copied');
+      try{navigator.clipboard.writeText(c).then(()=>{if(out)out.textContent='Copiado.'},()=>{if(out)out.textContent='Seleciona o código e copia à mão.'})}catch(err){if(out)out.textContent='Seleciona o código e copia à mão.'}break}
+    case 'logout':S.cur=null;go('login');break;
+    case 'map':go('map',true);break;
+    case 'play':S.scene=0;S.fails=0;S.quiz=0;S.qi=0;S.answered=false;go('m1',true);break;
+    case 'next':S.scene++;if(S.scene<=LEVELS.length){startLevel(S.scene-1)}else{S.qi=0;S.answered=false}go('m1',true);break;
+    case 'add':if(G.prog.length<G.L.max){G.prog.push(b.dataset.d);G.msg=null;G.err=-1;G.won=false;G.pos=G.L.s.slice();if(G.mood==='oops'){G.mood='think';G.pipMsg='Isso, vamos ajustar!'}render()}break;
+    case 'rot':{const k=CYC.indexOf(G.prog[i]);G.prog[i]=CYC[(k+1)%4];G.msg=null;G.err=-1;G.won=false;G.pos=G.L.s.slice();G.mood='think';G.pipMsg='Hmm, e se for assim? Experimenta correr!';render();break}
+    case 'back1':G.prog.pop();G.msg=null;G.err=-1;G.won=false;G.pos=G.L.s.slice();render();break;
+    case 'clear':G.prog=[];G.msg=null;G.err=-1;G.won=false;G.pos=G.L.s.slice();G.mood='happy';G.pipMsg=null;render();break;
+    case 'run':run();break;
+    case 'answer':S.answered=i;if(i===QUIZ[S.qi].a)S.quiz++;render();speak([['narr',QUIZ[S.qi].why],LAST[1]]);break;
+    case 'nextq':if(S.qi<2){S.qi++;S.answered=false}else{S.scene++;finishModule()}go('m1',true);break;
+    case 'parents':S.gateOk=false;S.gateErr=false;go('parents');break;
+    case 'teacher':if(S.screen==='login'){S.gateOk=false;S.gateErr=false}S.turma=null;go('teacher');break;
+    case 'gate':{const v=document.getElementById('gate');if(v&&+v.value===56){S.gateOk=true;S.gateErr=false}else S.gateErr=true;render();break}
+    case 'del':S.confirmDel=b.dataset.id;render();break;
+    case 'delno':S.confirmDel=null;render();break;
+    case 'delyes':store.profiles=store.profiles.filter(p=>p.lid!==b.dataset.id);if(S.cur===b.dataset.id)S.cur=null;S.confirmDel=null;save();render();break;
+    case 'newT':{const nm=(document.getElementById('tname').value||'').trim();if(!nm)break;const t={id:'t'+Date.now().toString(36),nome:nm,alunos:[]};teach.turmas.push(t);saveT();S.turma=t.id;go('turma');break}
+    case 'exT':{let t=teach.turmas.find(x=>x.ex);if(!t){t=exampleTurma();teach.turmas.push(t);saveT()}S.turma=t.id;go('turma');break}
+    case 'openT':S.turma=b.dataset.id;go('turma');break;
+    case 'delT':if(S.confirmDel!=='T'){S.confirmDel='T';b.textContent='Confirmar: apagar turma';break}
+      teach.turmas=teach.turmas.filter(t=>t.id!==S.turma);saveT();S.confirmDel=null;S.turma=null;go('teacher');break;
+    case 'rmA':{const t=curT();t.alunos.splice(+b.dataset.k,1);saveT();render();break}
+    case 'addA':{const t=curT();const c=document.getElementById('acode').value,nm=document.getElementById('aname').value.trim();const d=decodeCode(c);
+      if(!d){S.tmsg={bad:true,t:'Este código não é válido. Confirme os 9 caracteres.'};render();break}
+      const r=upsert(t,d,nm);saveT();S.tmsg={t:r==='new'?'Aluno junto à turma.':'Aluno atualizado com as estrelas novas.'};render();break}
+    case 'bulkA':{const t=curT();const lines=document.getElementById('bulk').value.split(/\n+/).map(s=>s.trim()).filter(Boolean);let nw=0,up=0,bad=[];
+      lines.forEach(l=>{const m=l.match(/^([0-9A-Za-z]{4}-?[0-9A-Za-z]{5})\s*(.*)$/);const d=m&&decodeCode(m[1]);if(!d){bad.push(l);return}upsert(t,d,m[2].trim())==='new'?nw++:up++});
+      saveT();S.tmsg={bad:bad.length>0,t:nw+' alunos novos, '+up+' atualizados.'+(bad.length?' Não reconheci: '+bad.map(esc).join(', ')+'.':'')};render();break}
+  }
+});
+app.addEventListener('keydown',e=>{if(e.target.id==='gate'&&e.key==='Enter'){const g=app.querySelector('[data-act="gate"]');if(g)g.click()}});
+try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>{}}catch(e){}
+render();
+})();
+</script>
+</body>
+</html>
