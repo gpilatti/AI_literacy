@@ -28,12 +28,6 @@ Jornada de literacia em inteligência artificial para crianças dos 7 aos 9 anos
 
 O site é estático e não tem servidor. Não recolhe nomes, emails, idades nem fotografias, e não envia nada para terceiros: as fontes estão alojadas no próprio repositório. O progresso fica no `localStorage` do navegador. Em Portugal, o consentimento de menores para serviços da sociedade da informação só é válido a partir dos 13 anos (Lei n.º 58/2019); por isso esta versão evita qualquer tratamento de dados no servidor.
 
-## Publicar com GitHub Pages
-
-Em **Settings > Pages**, escolher **Deploy from a branch**, branch `main`, pasta `/ (root)`. O site fica em `https://gpilatti.github.io/AI_literacy/`.
-
-Para testar localmente basta abrir `index.html` num navegador ou servir a pasta com qualquer servidor estático.
-
 ## Créditos
 
 Fontes [Fredoka](https://fonts.google.com/specimen/Fredoka) e [Atkinson Hyperlegible](https://fonts.google.com/specimen/Atkinson+Hyperlegible), ambas sob a SIL Open Font License 1.1.
